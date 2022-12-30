@@ -1,0 +1,13 @@
+
+// create Database 
+app.get('/createdb',(req,res)=>{
+    let sql = 'CREATE DATA nodemysql';
+    conn.query(sql,(err) => {
+        if(err){
+            throw err;
+        }
+        res.send('DATA Created');
+    });
+});
+
+

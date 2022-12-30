@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contauner">
+        <table>
+            <tr>
+                <tr>user id </tr>
+                <tr>user name </tr>
+                <tr>user email </tr>
+                <tr>user password </tr>
+
+            </tr>
+            <% user.foreach(function(user){ % >
+                <tr>
+                    <td><%=user.user_id %></td>
+                    <td><%=user.user_name %></td>
+                    <td><%=user.user_email %></td>
+                    <td><%=user.user_password %></td>
+                    <td><a  href="/delete/<%= user.user_id %>" class="btn btn-danger btn-sm">delete</a></td>
+                    <td><a  href="/edit/<%= user.user_id %>" class="btn btn-danger btn-sm">edit</a></td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
+</body>
+</html>
