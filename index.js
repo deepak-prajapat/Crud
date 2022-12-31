@@ -47,7 +47,7 @@ app.post('/insert',function(req,res){
         var email=req.body.email;
         var paasword=req.body.paasword;
 
-        var sql ='insert into  user (user_name,user_email,user_password) value('${ name}','${email},'${paasword}')';
+        var sql ='insert into  user (user_name,user_email,user_password) value("${ name}","${email},"${paasword}")';
 
          conn.query(sql,function(err,results){
             if(err) throw err;
@@ -71,13 +71,14 @@ app.post('/insert',function(req,res){
  ///   
     app.get('/delete/:id',function(req,res){
         var id=req.params.id;
-        var sql='delete from users where user_id='${id}'';
+        var sql='delete from users where user_id='("${id}");
 
         conn. query(sql,function(err,results){
             if(err) throw err;
             res.redirect('show')
-        });
+        
 });
+
 
 
 
@@ -94,4 +95,4 @@ var server= app.listen(4000,function(){
     console.log("App running On 4000...");
 
 });
-
+    });
